@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+</head>
+<body>
+    <h1>Quadratic Equation Solver</h1>
+    <p>Enter the coefficients for the quadratic equation (ax^2 + bx + c):</p>
+
+    <label for="a">a:</label>
+    <input type="number" id="a" value="1"><br><br>
+
+    <label for="b">b:</label>
+    <input type="number" id="b" value="-3"><br><br>
+
+    <label for="c">c:</label>
+    <input type="number" id="c" value="2"><br><br>
+
+    <button onclick="calculateRoots()">Calculate</button>
+
+    <h2>Results:</h2>
+    <div id="results"></div>
+
+    <script src="index.js"></script>
+    <script>
+        function calculateRoots() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+
+            const roots = findRoots(a, b, c);
+            let results = '';
+
+            if (roots.hasOwnProperty('root')) {
+                // One real root
+                results = `One real root: x = ${roots.root}`;
+            } else if (roots.hasOwnProperty('root1') && typeof roots.root1 === 'object') {
+                // Complex roots
+                results = `Two complex roots: ` +
+                          `x1 = ${roots.root1.real} + ${roots.root1.imaginary}i, ` +
+                          `x2 = ${roots.root2.real} ${roots.root2.imaginary < 0 ? '-' : '+'} ${Math.abs(roots.root2.imaginary)}i`;
+            } else {
+                // Two real roots
+                results = `Two real roots: x1 = ${roots.root1}, x2 = ${roots.root2}`;
+            }
+
+            document.getElementById('results').textContent = results;
+        }
+    </script>
+</body>
+</html>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
