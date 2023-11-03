@@ -1,3 +1,4 @@
+//Some part of the code was developed with the help of GPT-4
 const findRoots = (a, b, c) => {
     // Calculate the discriminant
     const discriminant = b * b - 4 * a * c;
